@@ -1,25 +1,29 @@
- <h1>CompletableFuture Challenge</h1>
+ <h1>Fork/Join Mechanics Implementation</h1>
 
-  <h2>Task</h2>
-  <p>Your task is to create a system that processes orders and performs additional calculations such as tax and shipping calculations. You need to process several orders asynchronously, perform calculations, and output the total amount for each order after all calculations are completed.</p>
+  <h2>Objective</h2>
+  <p>Your task is to implement the fork/join mechanics for an array. You will need to divide the array until you reach a specified threshold. After reaching this threshold, you will sum all the numbers in the array to obtain the total sum.</p>
 
-  <h2>Details</h2>
+  <h2>Task Description</h2>
+  <p>You are provided with a <strong>TaskForkJoin</strong> class that extends the <code>RecursiveTask&lt;Long&gt;</code> class. In this class, you must override the <code>compute()</code> method, which you need to implement.</p>
+
+  <h2>Important Fields</h2>
   <ul>
-      <li>Each order has a unique identifier and a price associated with it. (See <strong>InitMap</strong> class).</li>
-      <li>Order IDs and their sums are stored in a Map within the <strong>InitMap</strong> class. These Map keys (order IDs) are looped through in the <strong>processOrders()</strong> method.</li>
+      <li><strong>THRESHOLD</strong> - The threshold for array splitting. It is set to 200, and you should not change this value.</li>
+      <li><strong>long[] array</strong> - The initial array containing all elements.</li>
+      <li><strong>int start</strong> - The start index of the array segment.</li>
+      <li><strong>int end</strong> - The end index of the array segment.</li>
   </ul>
 
-  <h2>Order Processing</h2>
-  <p>Fetching order data is performed asynchronously and returns the order amount. See the <strong>OrderService</strong> class and its <code>fetchOrderAmount(String orderId)</code> method.</p>
+  <p>The threshold implies that if you have an array of 1000 elements, you should continue splitting it until each segment has 200 elements or less.</p>
 
-  <h2>Calculations</h2>
-  <p>The following calculations are required:</p>
-  <ul>
-      <li>Tax is calculated as 15% of the order amount. See <strong>CalculationService</strong> method <code>calculateTax()</code>.</li>
-      <li>Shipping cost is calculated as 10% of the order amount. See <strong>CalculationService</strong> method <code>calculateShipping()</code>.</li>
-  </ul>
+  <h2>Execution</h2>
+  <p>In addition, there is a <strong>RunnableTask</strong> class where you will run your program. Here, the array is initialized and executed within a <code>ForkJoinPool</code>. Once the program executes, the result will be output.</p>
 
   <div class="code-block">
-      <strong>Note:</strong><br>
-      Your main task is to implement the logic step-by-step in the <strong>OrderProcessingExample</strong> class within the <strong>task</strong> package, specifically in the <code>processOrders()</code> method.
+      <strong>Expected Output:</strong><br>
+      <code>Sum: 500500</code>
+  </div>
+
+  <div class="warning">
+      <strong>Warning:</strong> Do not change anything except the <code>compute()</code> method!
   </div>
