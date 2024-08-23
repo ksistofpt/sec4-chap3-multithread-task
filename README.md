@@ -10,7 +10,7 @@
 <h2>Details</h2>
 <ul>
   <li><strong>THRESHOLD</strong> - threshold of array splitting</li>
-  <li><strong>long[] array</strong> - source array with all donations</li>
+  <li><strong>long[] listDonations</strong> - source array with all donations</li>
   <li><strong>int start</strong> - the beginning of the array</li>
   <li><strong>int end</strong> - end of the array</li>
 </ul>
