@@ -1,4 +1,4 @@
-import com.codefinity.DonationTaskJoin;
+import com.codefinity.DonationTask;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ForkJoinPool;
@@ -12,7 +12,7 @@ public class TaskForkJoinTest {
     @Test
     public void testCompute_withSmallArray() {
         long[] array = {1, 2, 3, 4, 5}; // Simple array
-        DonationTaskJoin task = new DonationTaskJoin(array, 0, array.length);
+        DonationTask task = new DonationTask(array, 0, array.length);
         ForkJoinPool pool = new ForkJoinPool();
         long result = pool.invoke(task);
         assertEquals(15, result, "Sum of array elements should be 15");
@@ -24,7 +24,7 @@ public class TaskForkJoinTest {
         for (int i = 0; i < array.length; i++) {
             array[i] = i + 1;
         }
-        DonationTaskJoin task = new DonationTaskJoin(array, 0, array.length);
+        DonationTask task = new DonationTask(array, 0, array.length);
         ForkJoinPool pool = new ForkJoinPool();
         long result = pool.invoke(task);
         long expectedSum = 1000L * (1000 + 1) / 2; // Sum of first 1000 natural numbers
@@ -37,7 +37,7 @@ public class TaskForkJoinTest {
         for (int i = 0; i < array.length; i++) {
             array[i] = i + 1;
         }
-        DonationTaskJoin task = new DonationTaskJoin(array, 0, array.length);
+        DonationTask task = new DonationTask(array, 0, array.length);
 
 
         ForkJoinPool pool = new ForkJoinPool() {
